@@ -8,7 +8,7 @@ import lombok.experimental.SuperBuilder;
 import org.delivery.db.BaseEntity;
 import org.delivery.db.storemenu.enums.StoreMenuStatus;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.math.BigDecimal;
 
 @Data
@@ -29,7 +29,7 @@ public class StoreMenuEntity extends BaseEntity {
     @Column(precision = 11, scale = 4, nullable = false)
     private BigDecimal amount;
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 50, nullable = true)
     @Enumerated(EnumType.STRING)
     private StoreMenuStatus status;
 
