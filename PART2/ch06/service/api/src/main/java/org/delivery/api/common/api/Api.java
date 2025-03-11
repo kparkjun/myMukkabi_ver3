@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.delivery.api.common.error.ErrorCodeIfs;
 
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 
 @Data
 @NoArgsConstructor
