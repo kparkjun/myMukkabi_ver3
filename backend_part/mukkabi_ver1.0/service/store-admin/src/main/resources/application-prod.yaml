@@ -1,0 +1,26 @@
+server:
+  port: 8081
+  name: store-admin
+
+spring:
+  application:
+    name: store-admin
+
+  rabbitmq:
+    host: 15.165.230.53
+    port: 5672
+    username: admin
+    password: 1234
+
+  jpa:
+    show-sql: true
+    properties:
+      format_sql: true
+      dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    url: jdbc:mysql://fastcampus-rds-mysql8.ctskacs626yp.ap-northeast-2.rds.amazonaws.com:3306/delivery?useSSL=false&useUnicode=true&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: developer
+    password: developer123!
