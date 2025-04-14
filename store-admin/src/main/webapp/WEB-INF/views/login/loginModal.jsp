@@ -25,8 +25,8 @@
     <script>
         const accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImV4cCI6MTc0MzI2NTEyMX0.WNnd_LROwQSO_-lY_e-HiyJEyaFa5VKKO38jpGv0UEk"; // 실제 토큰으로 교체하세요
 
-        fetch("http://localhost:8080/login/login", {
-            method: "get",
+        fetch("http://localhost:8081/open-api/store-user/login", {
+            method: "post",
             headers: {
                 "Content-Type": "application/json",
                 "authorization-token": accessToken
@@ -36,7 +36,7 @@
             if (!response.ok) {
                 throw new Error("API 호출 실패: " + response.status);
             },
-            body: JSON.stringify({ email, password })
+            body: JSON.stringify({ storeId, storeName,password })
 
         })
        .then(response => response.json())
@@ -69,17 +69,41 @@
             </div>
 
             <div class="modal-body">
+
+                <div class="row m-2" style="margin-bottom:10px;">
+                    <label for="storeId" class="col-md-3">storeId</label>
+                    <div class="col-md-9">
+                        <input type="text" name="storeId" id="storeId" placeholder="storeId 입력" class="form-control">
+                    </div>
+                </div>
+
+
+                <div class="row m-2" style="margin-bottom:10px;">
+                    <label for="storeName" class="col-md-3">storeName</label>
+                    <div class="col-md-9">
+                        <input type="text" name="storeName" id="storeName" placeholder="storeName 입력" class="form-control">
+                    </div>
+                </div>
+
                 <div class="row m-2" style="margin-bottom:10px;">
                     <label for="email" class="col-md-3">이메일</label>
                     <div class="col-md-9">
                         <input type="text" name="email" id="email" placeholder="email" class="form-control">
                     </div>
                 </div>
+
                 <div class="row m-2">
                     <label for="pwd" class="col-md-3">비밀번호</label>
                     <div class="col-md-9">
                         <input type="password" name="password" id="password" placeholder="Password" class="form-control">
                     </div>
+                </div>
+
+
+            <div class="row m-2" style="margin-bottom:10px;">
+                <label for="role" class="col-md-3">role</label>
+                <div class="col-md-9">
+                    <input type="text" name="role" id="role" placeholder="role" class="form-control">
                 </div>
             </div>
 
@@ -95,17 +119,21 @@
 
 <script>
 function loginForm() {
+    const storeId=document.getElementById("storeId").value;
+    const storeName=document.getElementById("storeName").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
+    const role=document.getElementById("role").value;
 
     const requestBody = {
-        body: {
+            storeId: storeId,
+            storeName: storeName,
             email: email,
-            password: password
-        }
+            password: password,
+            role: role
     };
 
-    fetch("/open-api/store-user", {
+    fetch("/open-api/store-user/login", {
         method: "post",
         headers: {
             "Content-Type": "application/json"
