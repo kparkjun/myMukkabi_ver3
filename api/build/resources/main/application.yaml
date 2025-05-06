@@ -1,0 +1,47 @@
+spring:
+  server:
+    tomcat:
+      uri-encoding: UTF-8
+    servlet:
+      encoding:
+        charset: UTF-8
+        force: true
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+  jpa:
+    show-sql: true
+    properties:
+      format_sql: true
+      dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: validate
+  datasource:
+    url: jdbc:mysql://localhost:3306/delivery?useSSL=false&useUnicode=true&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 1234
+token:
+  secret:
+    key: SpringBootJWTHelperTokenSecretKeyValue123!@#
+  access-token:
+    plus-hour: 87600
+  refresh-token:
+    plus-hour: 87600
+components:
+  parameters:
+    AuthorizationTokenHeader:
+      name: Authorization-Token
+      in: header
+      required: true
+      schema:
+        type: string
