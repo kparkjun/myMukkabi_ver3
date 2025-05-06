@@ -24,9 +24,11 @@
     .then(data => {
         data.body.forEach(item=>{
                 const pre=document.createElement("pre");
-                 pre.innerHTML=JSON.stringify(item.name,null,2);
-                 pre.innerHTML+=JSON.stringify(item.amount,null,2);
-                 resultArea2.appendChild(pre);
+                pre.innerHTML="가게메뉴 : ";
+                pre.innerHTML+=JSON.stringify(item.name,null,2);
+                pre.innerHTML+="가격 : ";
+                pre.innerHTML+=JSON.stringify(item.amount,null,2);
+                resultArea2.appendChild(pre);
 
                 const iframe=document.createElement("iframe");
                 iframe.src=item.thumbnail_url;
