@@ -13,7 +13,7 @@
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "Bearer " + "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJleHAiOjIwNjE4OTI4NDl9.vrCTZPSB6eDhJzPUBw73Rqdwu4T0flD4xudO43yaTK0"
+        "Authorization": "Bearer " + "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjIwNjIwMDgzOTJ9.q0m7ZvZ2aU_kBsuh7DrQU6hRkxqSclQFsV_z5wNoOvs"
       }
     })
     .then(response => {
@@ -44,11 +44,13 @@
                                         method: "POST",
                                         headers: {
                                             "Content-Type": "application/json",
-                                            "Authorization": "Bearer " + "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJleHAiOjIwNjE4OTI4NDl9.vrCTZPSB6eDhJzPUBw73Rqdwu4T0flD4xudO43yaTK0" // 실제 토큰 함수 필요
+                                            "Authorization": "Bearer " + "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjIwNjIwMDgzOTJ9.q0m7ZvZ2aU_kBsuh7DrQU6hRkxqSclQFsV_z5wNoOvs" // 실제 토큰 함수 필요
                                         },
                                         body: JSON.stringify({
+                                            body: {
                                             store_id: 2,
                                             store_menu_id_list: [9]
+                                            }
                                         })
 
                                     })
@@ -58,9 +60,9 @@
                                         }
                                         return resp.json();
                                     })
-                                    .then(data => {
+                                    .then(data2 => {
                                         alert("주문 성공! ✅");
-                                        console.log("응답:", data);
+                                        console.log("응답:", data2);
                                     })
                                     .catch(err => {
                                         alert("주문 실패 ❌");

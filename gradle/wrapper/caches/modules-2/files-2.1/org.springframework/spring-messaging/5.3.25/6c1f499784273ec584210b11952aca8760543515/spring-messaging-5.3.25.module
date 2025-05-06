@@ -1,0 +1,136 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.springframework",
+    "module": "spring-messaging",
+    "version": "5.3.25",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.5.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.localToProject": "public",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework",
+          "module": "spring-beans",
+          "version": {
+            "requires": "5.3.25"
+          },
+          "excludes": [
+            {
+              "group": "xmlpull",
+              "module": "xmlpull"
+            },
+            {
+              "group": "org.hamcrest",
+              "module": "hamcrest-core"
+            }
+          ]
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-core",
+          "version": {
+            "requires": "5.3.25"
+          },
+          "excludes": [
+            {
+              "group": "xmlpull",
+              "module": "xmlpull"
+            },
+            {
+              "group": "org.hamcrest",
+              "module": "hamcrest-core"
+            }
+          ]
+        }
+      ],
+      "files": [
+        {
+          "name": "spring-messaging-5.3.25.jar",
+          "url": "spring-messaging-5.3.25.jar",
+          "size": 568791,
+          "sha512": "061239e10522a23d05b76d03ad41ae455fab5ce1c0b4f2fe6609cb1784676367a3306384b57f3297016e6a9b381fc0a05fcfeb571e62f40273bd9c9a749b58ed",
+          "sha256": "5446532f3be751e4ee8717f8df466c5fe7fa2fbe2064d8a58455ccf9e577183d",
+          "sha1": "7faad94124ba5426e12d07cb9f3e163ed9d3cbe7",
+          "md5": "8f97dc35559cb94ba94395417eea2cba"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.localToProject": "public",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework",
+          "module": "spring-beans",
+          "version": {
+            "requires": "5.3.25"
+          },
+          "excludes": [
+            {
+              "group": "xmlpull",
+              "module": "xmlpull"
+            },
+            {
+              "group": "org.hamcrest",
+              "module": "hamcrest-core"
+            }
+          ]
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-core",
+          "version": {
+            "requires": "5.3.25"
+          },
+          "excludes": [
+            {
+              "group": "xmlpull",
+              "module": "xmlpull"
+            },
+            {
+              "group": "org.hamcrest",
+              "module": "hamcrest-core"
+            }
+          ]
+        }
+      ],
+      "files": [
+        {
+          "name": "spring-messaging-5.3.25.jar",
+          "url": "spring-messaging-5.3.25.jar",
+          "size": 568791,
+          "sha512": "061239e10522a23d05b76d03ad41ae455fab5ce1c0b4f2fe6609cb1784676367a3306384b57f3297016e6a9b381fc0a05fcfeb571e62f40273bd9c9a749b58ed",
+          "sha256": "5446532f3be751e4ee8717f8df466c5fe7fa2fbe2064d8a58455ccf9e577183d",
+          "sha1": "7faad94124ba5426e12d07cb9f3e163ed9d3cbe7",
+          "md5": "8f97dc35559cb94ba94395417eea2cba"
+        }
+      ]
+    }
+  ]
+}

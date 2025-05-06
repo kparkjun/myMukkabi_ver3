@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.hibernate.orm</groupId>
+  <artifactId>hibernate-gradle-plugin</artifactId>
+  <version>6.4.2.Final</version>
+  <dependencies>
+    <dependency>
+      <groupId>org.hibernate.orm</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>6.4.2.Final</version>
+      <scope>runtime</scope>
+      <type>jar</type>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>net.bytebuddy</groupId>
+      <artifactId>byte-buddy</artifactId>
+      <version>1.14.7</version>
+      <scope>runtime</scope>
+      <type>jar</type>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.xml.bind</groupId>
+      <artifactId>jakarta.xml.bind-api</artifactId>
+      <version>4.0.0</version>
+      <scope>runtime</scope>
+      <type>jar</type>
+      <optional>false</optional>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.inject</groupId>
+      <artifactId>jakarta.inject-api</artifactId>
+      <version>2.0.1</version>
+      <scope>runtime</scope>
+      <type>jar</type>
+      <optional>false</optional>
+    </dependency>
+  </dependencies>
+</project>
