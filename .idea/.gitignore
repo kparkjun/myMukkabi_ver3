@@ -1,0 +1,12 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Gradle 캐시 제외
+.gradle/
+**/build/
+**/out/
+**/target/
+**/.idea/
+gradle/wrapper/caches/
+**/caches/
+
