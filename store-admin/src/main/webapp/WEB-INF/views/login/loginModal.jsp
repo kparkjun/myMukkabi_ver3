@@ -47,6 +47,7 @@
            console.error("Login failed", err);
        });
     </script>
+
 </head>
 
 <body>
@@ -58,7 +59,7 @@
 <pre id="result" style="background:#eee; padding:10px;"></pre>
 
 <!-- Modal -->
-<form>
+<form method="post" action="<%=myctx%>/login">
 <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -109,13 +110,24 @@
 
             <div class="modal-footer">
                 <button type="button" onclick="loginForm()" class="btn btn-primary">Login</button>
-                <button data-dismiss="modal" class="btn btn-danger">Close</button>
+                <button type="button" class="btn btn-danger" onclick="closeAndMove()">Close</button>
             </div>
 
         </div>
     </div>
 </div>
 </form>
+
+<script>
+    function closeAndMove() {
+        // 모달 수동으로 닫기
+        $('#myModal').modal('hide');
+
+        // 페이지 이동
+        window.location.href = '<%=myctx%>/order/order';
+    }
+    </script>
+
 
 <script>
 function loginForm() {

@@ -32,13 +32,17 @@ public class SecurityConfig {
                                     SWAGGER.toArray(new String[0])
                             ).permitAll()
                             .mvcMatchers(
-                                    "/open-api/**","/index","/","/store-menu/signup",
-                                    "/store-menu/loginModal"
+                                    "/open-api/**","/index","/store-menu/signup",
+                                    "/login/loginModal","/order/order"
                             ).permitAll()
-
+                            .mvcMatchers("/").authenticated()
                             .anyRequest().authenticated();
+
                 })
-                .formLogin(Customizer.withDefaults())
+                .formLogin(form -> form
+                        .loginPage("/login/loginModal")
+                        .defaultSuccessUrl("/order/order", true)
+                        .permitAll())
                 ;
 
         return httpSecurity.build();
