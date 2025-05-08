@@ -11,7 +11,12 @@ public class MainController {
 
     @GetMapping("/")
     public String home(){
-        return "redirect:/index.html";
+        return "main";
+    }
+
+    @GetMapping("/main")
+    public String home2(){
+        return "main";
     }
 
     @GetMapping("index")
@@ -28,5 +33,15 @@ public class MainController {
     public String login(){
         return "login/loginModal";
     }
+
+    @GetMapping("store-menu/signup")
+    public String storesignup(){return "store-menu/signup";}
+
+    @GetMapping("store-menu/loginModal")
+    public String menulogin(){return "store-menu/loginModal";}
+
+    @GetMapping("main_detail/main_detail")
+    public String main_detail(){return "main_detail/main_detail";}
+
 
 }
