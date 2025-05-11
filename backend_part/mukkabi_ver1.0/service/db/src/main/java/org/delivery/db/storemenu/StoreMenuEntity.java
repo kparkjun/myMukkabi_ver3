@@ -20,6 +20,10 @@ import java.math.BigDecimal;
 @Table(name = "store_menu")
 public class StoreMenuEntity extends BaseEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
 
     @Column(name="store_id",nullable = false)
     private Long storeId;

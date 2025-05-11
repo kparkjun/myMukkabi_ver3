@@ -5,8 +5,8 @@ pageEncoding="UTF-8"%>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>주문 관리</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
 
     <style>
         table {
@@ -38,25 +38,30 @@ pageEncoding="UTF-8"%>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="order in orders" :key="order.user_order_response.id">
-            <td>{{ order.user_order_response.id }}</td>
-            <td>
-                <ul>
-                    <li v-for="item in order.store_menu_response_list" :key="item.id">
-                        {{ item.name }} {{ item.amount }}
-                    </li>
-                </ul>
-            </td>
-            <td>{{ order.user_order_response.status }}</td>
-            <td class="button-container">
-                <button @click="acceptOrder(order)">주문수락</button>
-                <button @click="startCooking(order)">조리시작</button>
-                <button @click="startDelivery(order)">배달시작</button>
-            </td>
-        </tr>
-        </tbody>
+                            <tr v-for="order in orders" :key="order.user_order_response.id">
+                                <td>{{ order.user_order_response.id }}</td>
+                                <td>
+                                    <ul>
+                                        <li v-for="item in order.store_menu_response_list" :key="item.id">
+                                            {{ item.name }} {{ item.amount }}
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td>{{ order.user_order_response.status }}</td>
+                                <td class="button-container">
+                                    <button @click="acceptOrder(order)">주문수락</button>
+                                    <button @click="startCooking(order)">조리시작</button>
+                                    <button @click="startDelivery(order)">배달시작</button>
+                                </td>
+                            </tr>
+                       </tbody>
+
+
     </table>
 </div>
+
+ <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 <script>
     new Vue({
@@ -76,25 +81,66 @@ pageEncoding="UTF-8"%>
         },
         pushData(order){
             this.orders.unshift(order);
-        }
-      },
+        },
+         pushTestEvent() {
+                  const payload = {
+                    storeId: 2,
+                    message: "테스트 주문입니다" // 실제 API가 기대하는 형식으로 수정
+                  };
+
+             fetch("http://localhost:8081/api/sse/push-event", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(payload)
+                  })
+                  .then(response => {
+                    if (!response.ok) throw new Error("푸시 실패");
+                    return response.text(); // or .json() depending on your API
+                  })
+                  .then(data => {
+                    console.log("서버 응답:", data);
+                  })
+                  .catch(error => {
+                    console.error("푸시 오류:", error);
+                  });
+                  }
+                },
+
       mounted() {
         // SSE 연결
         const storeId=2;
-        const url = `http://localhost:8081/api/sse/connect?storeId=${storeId}`;    // 접속주소
-        const eventSource = new EventSource(url);               // sse 연결
+        const url = `http://localhost:8081/api/sse/connect?storeId=2`;    // 접속주소
+        const eventSource = new EventSource(url);
 
         eventSource.onopen = event => {
-            console.log("sse connection")
-        }
+            console.log("sse connection");
+
+        };
 
         eventSource.onmessage = event => {
-            console.log("receive : "+event.data);
-            const data = JSON.parse(event.data);
-            this.pushData(data);
+            if (event.data === "connected") {
+                console.log("SSE 연결 완료됨");
+                return; // 무시
+              }
+
+          const raw = JSON.parse(event.data);
+
+          const order = {
+            user_order_response: {
+              id: raw.orderId,
+              status: raw.status
+            },
+            store_menu_response_list: raw.menus
+          };
+
+          this.pushData(order);
+          this.acceptOrder(order);
+        };
         }
-      }
-    });
+      });
 </script>
 </body>
 </html>
+

@@ -12,6 +12,7 @@ import org.delivery.db.store.enums.StoreStatus;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,6 +21,14 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "store")
 public class StoreEntity extends BaseEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
+
+    @Column(name = "store_id")  // ★ store 테이블의 실제 PK 컬럼명에 맞게 설정
+    private Long storeId;
 
     @Column(name="storeName" ,length = 100, nullable = false)
     private String name;

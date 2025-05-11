@@ -20,6 +20,11 @@ import javax.persistence.*;
 @Table(name = "user_order_menu")
 public class UserOrderMenuEntity extends BaseEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
+
     @Column(name="user_order_id",nullable = false)
     private Long userOrderId;   // 1 : n
     @Column(name="store_menu_id",nullable = false)

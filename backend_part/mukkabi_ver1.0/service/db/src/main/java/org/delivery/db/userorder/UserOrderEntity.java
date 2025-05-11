@@ -1,9 +1,6 @@
 package org.delivery.db.userorder;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.delivery.db.BaseEntity;
 import org.delivery.db.userorder.enums.UserOrderStatus;
@@ -13,13 +10,20 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
-@NoArgsConstructor
+@RequiredArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
+@Builder
 @Entity
 @Table(name = "user_order")
 public class UserOrderEntity extends BaseEntity {
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
 
     @Column(name="user_id",nullable = false)
     private Long userId;    // user table 1:n
@@ -44,4 +48,4 @@ public class UserOrderEntity extends BaseEntity {
 
     private LocalDateTime receivedAt;
 
-}
+     }

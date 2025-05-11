@@ -1,102 +1,80 @@
 package org.delivery.storeadmin.domain.sse.connection.model;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+
+import java.io.IOException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
 import org.delivery.storeadmin.domain.sse.connection.ifs.ConnectionPoolIfs;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
-import java.io.IOException;
-
-@Getter
-@ToString
-@EqualsAndHashCode
 public class UserSseConnection {
 
     private final SseEmitter sseEmitter;
-
     private final String uniqueKey;
-
-
-    private final ConnectionPoolIfs<String,UserSseConnection> connectionPoolIfs;
-
+    private final ConnectionPoolIfs<String, UserSseConnection> connectionPoolIfs;
     private final ObjectMapper objectMapper;
 
+    // ✅ 생성자 안에서 초기화
     private UserSseConnection(
             String uniqueKey,
-            ConnectionPoolIfs<String,UserSseConnection> connectionPoolIfs,
+            ConnectionPoolIfs<String, UserSseConnection> connectionPoolIfs,
             ObjectMapper objectMapper
+    ) {
+        this.uniqueKey = uniqueKey;
+        this.connectionPoolIfs = connectionPoolIfs;
+        this.objectMapper = objectMapper;
+        this.sseEmitter = new SseEmitter(0L);
 
-    ){
-            // key 초기화
-            this.uniqueKey=uniqueKey;
+        // emitter 콜백
+        this.sseEmitter.onCompletion(() -> {
+            this.connectionPoolIfs.onCompletionCallback(this);
+        });
 
-            // sse 초기화
-            this.sseEmitter=new SseEmitter(60*1000L);
+        this.sseEmitter.onTimeout(() -> {
+            this.sseEmitter.complete();
+        });
 
-            // call back 초기화
-            this.connectionPoolIfs=connectionPoolIfs;
-
-            // object mapper 초기화
-            this.objectMapper=objectMapper;
-
-            // on completion
-            this.sseEmitter.onCompletion(()->{
-                // connection pool remove
-               this.connectionPoolIfs.onCompletionCallback(this);
-
-            });
-            // on timeout
-            this.sseEmitter.onTimeout(()->{
-                this.sseEmitter.complete();
-            });
-
-
-            // onopen 메시지
-        this.sendMessage("onopen","connect");
+        // 최초 연결 시 이벤트 전송
+       // this.sendMessage("onopen", "connect");
     }
 
+    // ✅ 정적 팩토리 메서드에서 등록하고 반환
     public static UserSseConnection connect(
             String uniqueKey,
-            ConnectionPoolIfs<String,UserSseConnection> connectionPoolIf,
+            ConnectionPoolIfs<String, UserSseConnection> connectionPoolIfs,
             ObjectMapper objectMapper
-    ){
-            return new UserSseConnection(uniqueKey,connectionPoolIf,objectMapper);
+    ) {
+        var connection = new UserSseConnection(uniqueKey, connectionPoolIfs, objectMapper);
+        connectionPoolIfs.put(uniqueKey, connection); // ⭐ pool 등록
+        return connection;
     }
 
-    public void sendMessage(String eventName,Object data) {
-
-
-
+    public void sendMessage(String eventName, Object data) {
         try {
-            var json=this.objectMapper.writeValueAsString(data);
-            var event=SseEmitter.event()
+            var json = objectMapper.writeValueAsString(data);
+            var event = SseEmitter.event()
                     .name(eventName)
-                    .data(json)
-                    ;
-
+                    .data(json);
             this.sseEmitter.send(event);
         } catch (IOException e) {
             this.sseEmitter.completeWithError(e);
         }
     }
 
-    public void sendMessage(Object data){
-
+    public void sendMessage(Object data) {
         try {
-            var json=this.objectMapper.writeValueAsString(data);
-
-            var event=SseEmitter.event()
-                    .data(json)
-                    ;
-
+            var json = objectMapper.writeValueAsString(data);
+            var event = SseEmitter.event().data(json);
             this.sseEmitter.send(event);
         } catch (IOException e) {
             this.sseEmitter.completeWithError(e);
         }
     }
 
+    public SseEmitter getSseEmitter() {
+        return this.sseEmitter;
+    }
+
+    public String getUniqueKey() {
+        return this.uniqueKey;
+    }
 }

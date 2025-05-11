@@ -33,7 +33,7 @@ public class SecurityConfig {
                             ).permitAll()
                             .mvcMatchers(
                                     "/open-api/**","/index","/store-menu/signup",
-                                    "/login/loginModal","/order/order"
+                                    "/login/loginModal","/order/order","/api/sse/connect"
                             ).permitAll()
                             .mvcMatchers("/").authenticated()
                             .anyRequest().authenticated();

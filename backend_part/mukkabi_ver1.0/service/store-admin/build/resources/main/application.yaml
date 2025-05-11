@@ -3,6 +3,8 @@ server:
   name: store-admin
 
 spring:
+  jackson:
+    property-naming-strategy: SNAKE_CASE
   servlet:
     encoding:
       charset: UTF-8

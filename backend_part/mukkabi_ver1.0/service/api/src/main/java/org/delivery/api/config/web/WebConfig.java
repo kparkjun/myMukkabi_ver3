@@ -77,7 +77,10 @@ public class WebConfig implements WebMvcConfigurer {
                         "/css/**",
                         "/store-menu/signup",
                         "/store-menu/loginModal",
-                        "/main_detail/main_detail"
+                        "/main_detail/main_detail",
+                        "/login/loginModal",
+                        "order/order",
+                        "/api/sse/connect"
                 )
             ;
 

@@ -44,6 +44,7 @@ public class UserSession implements UserDetails {
     private LocalDateTime lastLoginAt;
 
     // store
+    @Column(name="store_id")
     private Long storeId;
 
     private String storeName;

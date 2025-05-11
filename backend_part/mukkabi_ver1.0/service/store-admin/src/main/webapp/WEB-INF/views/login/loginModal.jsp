@@ -35,7 +35,7 @@
         .then(response => {
             if (!response.ok) {
                 throw new Error("API 호출 실패: " + response.status);
-            },
+            }
             body: JSON.stringify({ storeId, storeName,password })
 
         })

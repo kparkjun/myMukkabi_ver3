@@ -22,6 +22,11 @@ import java.time.LocalDateTime;
 @Table(name = "store_user")
 public class StoreUserEntity extends BaseEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
+
     @Column(name="store_id",nullable = false)
     private Long storeId;
 

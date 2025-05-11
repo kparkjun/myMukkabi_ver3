@@ -1,9 +1,8 @@
 package org.delivery.storeadmin.domain.sse.connection.ifs;
 
-public interface ConnectionPoolIfs<T,R> {
+public interface ConnectionPoolIfs<K,V> {
 
-    void addSession(T uniqueKey,R session);
-    R getSession(T uniqueKey);
-
-    void onCompletionCallback(R session);
+    void onCompletionCallback(V value);
+    V get(K key);
+    void put(K key, V value);
 }

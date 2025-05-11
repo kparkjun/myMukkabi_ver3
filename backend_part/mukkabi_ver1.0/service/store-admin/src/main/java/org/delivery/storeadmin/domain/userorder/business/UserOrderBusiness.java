@@ -65,13 +65,13 @@ public class UserOrderBusiness {
                 .build()
                 ;
 
-        var userConnection=sseConnectionPool.getSession(userOrderEntity.getStoreId().toString());
+        var userConnection=sseConnectionPool.get(userOrderEntity.getStoreId().toString());
         if (userConnection != null) {
             userConnection.sendMessage(push);
         } else {
             log.warn("SSE 연결 없음: storeId={}", userOrderEntity.getStoreId());
         }
         // 사용자게게 push
-        userConnection.sendMessage(push);
+        //userConnection.sendMessage(push);
     }
 }
