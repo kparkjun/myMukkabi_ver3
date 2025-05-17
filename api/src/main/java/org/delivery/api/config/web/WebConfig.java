@@ -51,6 +51,7 @@ public class WebConfig implements WebMvcConfigurer {
         "/main.jsp",
         "/contact",
         "/join",
+        "/main",
         "/index",
         "/member/signup",
         "/login/login",

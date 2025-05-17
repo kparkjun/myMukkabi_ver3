@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% String myctx=request.getContextPath();  %>    
+
 <html>
 <head> 
 <meta charset="utf-8">
@@ -47,16 +47,16 @@
 						class="icon-bar"></span><span class="icon-bar"></span><span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="<%=myctx%>/static/index.html">
+				<a class="navbar-brand" href="main">
 				<span>Brand</span></a>
 			</div>
 			<div class="collapse navbar-collapse" id="navbar-ex-collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li class="active"><a href="<%=myctx%>/main">Home</a></li>
-					<li><a href="<%=myctx%>/member/signup">손님가입</a></li>
-                    <li><a href="<%=myctx%>/login/login">손님로그인</a></li>
-                    <li><a href="<%=myctx%>/store-menu/loginModal">가게 로그인</a></li>
-                    <li><a href="<%=myctx%>/store-menu/signup">가게메뉴등록</a></li>
+					<li class="active"><a href="main">Home</a></li>
+					<li><a href="member/signup">손님가입</a></li>
+                    <li><a href="login/login">손님로그인</a></li>
+                    <li><a href="store-menu/loginModal">가게 로그인</a></li>
+                    <li><a href="store-menu/signup">가게메뉴등록</a></li>
 				</ul>
 			</div>
 		</div>

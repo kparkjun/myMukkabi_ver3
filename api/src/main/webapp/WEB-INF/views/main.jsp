@@ -1,6 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<% String myctx = request.getContextPath(); %>
-<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -11,7 +9,7 @@
         fetch("http://localhost:8080/index", {
           method: "GET",
           headers: {
-            "authorization-token": accessToken
+            "Authorization-token": accessToken
           }
         })
         .then(response => {
@@ -32,7 +30,7 @@
 	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 	<script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="<%=myctx%>/css/index.css" rel="stylesheet" type="text/css">
+	<link href="css/index.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -55,10 +53,10 @@
 			<div class="col-md-12">
 				<ul class="nav nav-pills">
 					<li class="active"><a href="#">Home</a></li>
-					<li><a href="<%=myctx%>/member/signup">손님가입</a></li>
-                    <li><a href="<%=myctx%>/login/login">손님로그인</a></li>
-                    <li><a href="<%=myctx%>/store-menu/signup">가게 메뉴 등록</a></li>
-                 	<li><a href="<%=myctx%>/store-menu/loginModal">가게로그인</a></li>
+					<li><a href="member/signup">손님가입</a></li>
+                    <li><a href="login/login">손님로그인</a></li>
+                    <li><a href="store-menu/signup">가게 메뉴 등록</a></li>
+                 	<li><a href="store-menu/loginModal">가게로그인</a></li>
 				</ul>
 			</div>
 		</div>
