@@ -1,0 +1,168 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.springframework",
+    "module": "spring-orm",
+    "version": "5.3.25",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.5.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework",
+          "module": "spring-beans",
+          "version": {
+            "requires": "5.3.25"
+          },
+          "excludes": [
+            {
+              "group": "org.apache.taglibs",
+              "module": "taglibs-standard-spec"
+            }
+          ]
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-core",
+          "version": {
+            "requires": "5.3.25"
+          },
+          "excludes": [
+            {
+              "group": "org.apache.taglibs",
+              "module": "taglibs-standard-spec"
+            }
+          ]
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-jdbc",
+          "version": {
+            "requires": "5.3.25"
+          },
+          "excludes": [
+            {
+              "group": "org.apache.taglibs",
+              "module": "taglibs-standard-spec"
+            }
+          ]
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-tx",
+          "version": {
+            "requires": "5.3.25"
+          },
+          "excludes": [
+            {
+              "group": "org.apache.taglibs",
+              "module": "taglibs-standard-spec"
+            }
+          ]
+        }
+      ],
+      "files": [
+        {
+          "name": "spring-orm-5.3.25.jar",
+          "url": "spring-orm-5.3.25.jar",
+          "size": 204146,
+          "sha512": "75846be7c504f0097cd3fd7ddd5642db0a54acd6723cb53c3343dd72fe5f30aa63e096657858b03f8ad5c99c16f27cc063879d13f294a1f33ef530b8bf6edaf6",
+          "sha256": "2408cd2d61674f75872fd8667c17faa6c6672885fff8fc2a8ef775b0c7fce28f",
+          "sha1": "b0fb2911a5d528037149240c8b4f2c820d90405b",
+          "md5": "3f82363fc397932cc75e94aec17b62e5"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework",
+          "module": "spring-beans",
+          "version": {
+            "requires": "5.3.25"
+          },
+          "excludes": [
+            {
+              "group": "org.apache.taglibs",
+              "module": "taglibs-standard-spec"
+            }
+          ]
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-core",
+          "version": {
+            "requires": "5.3.25"
+          },
+          "excludes": [
+            {
+              "group": "org.apache.taglibs",
+              "module": "taglibs-standard-spec"
+            }
+          ]
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-jdbc",
+          "version": {
+            "requires": "5.3.25"
+          },
+          "excludes": [
+            {
+              "group": "org.apache.taglibs",
+              "module": "taglibs-standard-spec"
+            }
+          ]
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-tx",
+          "version": {
+            "requires": "5.3.25"
+          },
+          "excludes": [
+            {
+              "group": "org.apache.taglibs",
+              "module": "taglibs-standard-spec"
+            }
+          ]
+        }
+      ],
+      "files": [
+        {
+          "name": "spring-orm-5.3.25.jar",
+          "url": "spring-orm-5.3.25.jar",
+          "size": 204146,
+          "sha512": "75846be7c504f0097cd3fd7ddd5642db0a54acd6723cb53c3343dd72fe5f30aa63e096657858b03f8ad5c99c16f27cc063879d13f294a1f33ef530b8bf6edaf6",
+          "sha256": "2408cd2d61674f75872fd8667c17faa6c6672885fff8fc2a8ef775b0c7fce28f",
+          "sha1": "b0fb2911a5d528037149240c8b4f2c820d90405b",
+          "md5": "3f82363fc397932cc75e94aec17b62e5"
+        }
+      ]
+    }
+  ]
+}

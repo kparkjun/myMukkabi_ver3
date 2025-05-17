@@ -1,0 +1,110 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.springframework",
+    "module": "spring-jdbc",
+    "version": "5.3.25",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.5.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.localToProject": "public",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework",
+          "module": "spring-beans",
+          "version": {
+            "requires": "5.3.25"
+          }
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-core",
+          "version": {
+            "requires": "5.3.25"
+          }
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-tx",
+          "version": {
+            "requires": "5.3.25"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "spring-jdbc-5.3.25.jar",
+          "url": "spring-jdbc-5.3.25.jar",
+          "size": 428139,
+          "sha512": "9f0acda1db2841e6dd028e39d57fc422f867a06086b9528855d7822e8119115efa16da215a8872e15bfbd0c481e26031d47cf5cf48cfcc9364f6315de540d883",
+          "sha256": "38c8937ba0f34c19811aacaadf2038708b1c984b613216f33cdb3d0b94d16f49",
+          "sha1": "809f5841b13d42e5d4d14eb13346958cc9e9e187",
+          "md5": "a54b65ba89ecf5a3f3af970db1f56b43"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.localToProject": "public",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework",
+          "module": "spring-beans",
+          "version": {
+            "requires": "5.3.25"
+          }
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-core",
+          "version": {
+            "requires": "5.3.25"
+          }
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-tx",
+          "version": {
+            "requires": "5.3.25"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "spring-jdbc-5.3.25.jar",
+          "url": "spring-jdbc-5.3.25.jar",
+          "size": 428139,
+          "sha512": "9f0acda1db2841e6dd028e39d57fc422f867a06086b9528855d7822e8119115efa16da215a8872e15bfbd0c481e26031d47cf5cf48cfcc9364f6315de540d883",
+          "sha256": "38c8937ba0f34c19811aacaadf2038708b1c984b613216f33cdb3d0b94d16f49",
+          "sha1": "809f5841b13d42e5d4d14eb13346958cc9e9e187",
+          "md5": "a54b65ba89ecf5a3f3af970db1f56b43"
+        }
+      ]
+    }
+  ]
+}
